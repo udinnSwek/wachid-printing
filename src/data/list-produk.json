@@ -1,0 +1,654 @@
+{
+    "katalog_percetakan": [
+    {
+      "kategori": "Kebutuhan Kantor & Administrasi",
+      "produk": [
+        {
+        "id": "KNT-01", 
+        "nama": "Kartu Nama Premium",
+        "harga": 35000,
+        "link_gambar": "https://placehold.co/400x400?text=KNT-01" 
+        },
+        {
+        "id": "KNT-02", 
+        "nama": "Kop Surat Perusahaan",
+        "harga": 75000,
+        "link_gambar": "https://placehold.co/400x400?text=KNT-02" 
+        },
+        {
+        "id": "KNT-03", 
+        "nama": "Amplop Custom",
+        "harga": 45000,
+        "link_gambar": "https://placehold.co/400x400?text=KNT-03" 
+        },
+        {
+        "id": "KNT-04", 
+        "nama": "Stempel Flash (Warna)",
+        "harga": 65000,
+        "link_gambar": "https://placehold.co/400x400?text=KNT-04" 
+        },
+        {
+        "id": "KNT-05", 
+        "nama": "ID Card PVC",
+        "harga": 15000,
+        "link_gambar": "https://placehold.co/400x400?text=KNT-05" 
+        },
+        {
+        "id": "KNT-06", 
+        "nama": "Lanyard Printing",
+        "harga": 20000,
+        "link_gambar": "https://placehold.co/400x400?text=KNT-06" 
+        },
+        {
+        "id": "KNT-07", 
+        "nama": "Stopmap Folder",
+        "harga": 80000,
+        "link_gambar": "https://placehold.co/400x400?text=KNT-07" 
+        },
+        {
+        "id": "KNT-08", 
+        "nama": "Blocknote / Buku Catatan",
+        "harga": 25000,
+        "link_gambar": "https://placehold.co/400x400?text=KNT-08" 
+        },
+        {
+        "id": "KNT-09", 
+        "nama": "Kwitansi NCR",
+        "harga": 30000,
+        "link_gambar": "https://placehold.co/400x400?text=KNT-09" 
+        },
+        {
+        "id": "KNT-10", 
+        "nama": "Faktur Penjualan NCR",
+        "harga": 30000,
+        "link_gambar": "https://placehold.co/400x400?text=KNT-10" 
+        }
+      ]
+    },
+    {
+      "kategori": "Media Promosi & Pemasaran",
+      "produk": [
+        {
+        "id": "PRM-01", 
+        "nama": "Brosur Lipat 3",
+        "harga": 150000,
+        "link_gambar": "https://placehold.co/400x400?text=PRM-01" 
+        },
+        {
+        "id": "PRM-02", 
+        "nama": "Flyer A5",
+        "harga": 95000,
+        "link_gambar": "https://placehold.co/400x400?text=PRM-02" 
+        },
+        {
+        "id": "PRM-03", 
+        "nama": "Katalog Produk",
+        "harga": 250000,
+        "link_gambar": "https://placehold.co/400x400?text=PRM-03" 
+        },
+        {
+        "id": "PRM-04", 
+        "nama": "Company Profile Hardcover",
+        "harga": 120000,
+        "link_gambar": "https://placehold.co/400x400?text=PRM-04" 
+        },
+        {
+        "id": "PRM-05", 
+        "nama": "Wobbler Promosi",
+        "harga": 12000,
+        "link_gambar": "https://placehold.co/400x400?text=PRM-05" 
+        },
+        {
+        "id": "PRM-06", 
+        "nama": "Tent Card Meja",
+        "harga": 15000,
+        "link_gambar": "https://placehold.co/400x400?text=PRM-06" 
+        },
+        {
+        "id": "PRM-07", 
+        "nama": "Shelf Talker Rak",
+        "harga": 18000,
+        "link_gambar": "https://placehold.co/400x400?text=PRM-07" 
+        },
+        {
+        "id": "PRM-08", 
+        "nama": "Kalender Meja",
+        "harga": 45000,
+        "link_gambar": "https://placehold.co/400x400?text=PRM-08" 
+        },
+        {
+        "id": "PRM-09", 
+        "nama": "Kalender Dinding",
+        "harga": 35000,
+        "link_gambar": "https://placehold.co/400x400?text=PRM-09" 
+        },
+        {
+        "id": "PRM-10", 
+        "nama": "Pamflet A4",
+        "harga": 110000,
+        "link_gambar": "https://placehold.co/400x400?text=PRM-10" 
+        }
+      ]
+    },
+    {
+      "kategori": "Kemasan & Packaging",
+      "produk": [
+        {
+        "id": "KMS-01", 
+        "nama": "Hardbox Premium",
+        "harga": 45000,
+        "link_gambar": "https://placehold.co/400x400?text=KMS-01" 
+        },
+        {
+        "id": "KMS-02", 
+        "nama": "Corrugated Box (Kardus)",
+        "harga": 8000,
+        "link_gambar": "https://placehold.co/400x400?text=KMS-02" 
+        },
+        {
+        "id": "KMS-03", 
+        "nama": "Softbox Ivory / Duplex",
+        "harga": 3500,
+        "link_gambar": "https://placehold.co/400x400?text=KMS-03" 
+        },
+        {
+        "id": "KMS-04", 
+        "nama": "Paper Bag Butik",
+        "harga": 7500,
+        "link_gambar": "https://placehold.co/400x400?text=KMS-04" 
+        },
+        {
+        "id": "KMS-05", 
+        "nama": "Standing Pouch Kraft",
+        "harga": 2500,
+        "link_gambar": "https://placehold.co/400x400?text=KMS-05" 
+        },
+        {
+        "id": "KMS-06", 
+        "nama": "Sleeve Box Kemasan",
+        "harga": 4000,
+        "link_gambar": "https://placehold.co/400x400?text=KMS-06" 
+        },
+        {
+        "id": "KMS-07", 
+        "nama": "Food Pail / Rice Box",
+        "harga": 1500,
+        "link_gambar": "https://placehold.co/400x400?text=KMS-07" 
+        },
+        {
+        "id": "KMS-08", 
+        "nama": "Dus Sepatu Custom",
+        "harga": 12000,
+        "link_gambar": "https://placehold.co/400x400?text=KMS-08" 
+        },
+        {
+        "id": "KMS-09", 
+        "nama": "Label Sablon Cup Plastik",
+        "harga": 800,
+        "link_gambar": "https://placehold.co/400x400?text=KMS-09" 
+        },
+        {
+        "id": "KMS-10", 
+        "nama": "Shopping Bag Plastik Plong",
+        "harga": 1200,
+        "link_gambar": "https://placehold.co/400x400?text=KMS-10" 
+        }
+      ]
+    },
+    {
+      "kategori": "Komponen Board Game & Permainan",
+      "produk": [
+        {
+        "id": "BGM-01", 
+        "nama": "Papan Permainan (Game Board) Lipat",
+        "harga": 85000,
+        "link_gambar": "https://placehold.co/400x400?text=BGM-01" 
+        },
+        {
+        "id": "BGM-02", 
+        "nama": "Kartu Permainan (Playing Cards) Art Carton",
+        "harga": 45000,
+        "link_gambar": "https://placehold.co/400x400?text=BGM-02" 
+        },
+        {
+        "id": "BGM-03", 
+        "nama": "Token Punchboard Greyboard",
+        "harga": 35000,
+        "link_gambar": "https://placehold.co/400x400?text=BGM-03" 
+        },
+        {
+        "id": "BGM-04", 
+        "nama": "Box Board Game Set",
+        "harga": 65000,
+        "link_gambar": "https://placehold.co/400x400?text=BGM-04" 
+        },
+        {
+        "id": "BGM-05", 
+        "nama": "Rulebook (Buku Aturan Bermain)",
+        "harga": 20000,
+        "link_gambar": "https://placehold.co/400x400?text=BGM-05" 
+        },
+        {
+        "id": "BGM-06", 
+        "nama": "Standee Karakter Karton",
+        "harga": 15000,
+        "link_gambar": "https://placehold.co/400x400?text=BGM-06" 
+        },
+        {
+        "id": "BGM-07", 
+        "nama": "Uang Mainan Kertas",
+        "harga": 12000,
+        "link_gambar": "https://placehold.co/400x400?text=BGM-07" 
+        },
+        {
+        "id": "BGM-08", 
+        "nama": "Tuck Box untuk Kartu",
+        "harga": 8000,
+        "link_gambar": "https://placehold.co/400x400?text=BGM-08" 
+        },
+        {
+        "id": "BGM-09", 
+        "nama": "Playmat Cetak (Bahan Karet/Kain)",
+        "harga": 125000,
+        "link_gambar": "https://placehold.co/400x400?text=BGM-09" 
+        },
+        {
+        "id": "BGM-10", 
+        "nama": "Dadu Custom Sablon",
+        "harga": 25000,
+        "link_gambar": "https://placehold.co/400x400?text=BGM-10" 
+        }
+      ]
+    },
+    {
+      "kategori": "Buku & Publikasi",
+      "produk": [
+        {
+        "id": "PUB-01", 
+        "nama": "Buku Novel Softcover",
+        "harga": 45000,
+        "link_gambar": "https://placehold.co/400x400?text=PUB-01" 
+        },
+        {
+        "id": "PUB-02", 
+        "nama": "Buku Pop-up Interaktif",
+        "harga": 150000,
+        "link_gambar": "https://placehold.co/400x400?text=PUB-02" 
+        },
+        {
+        "id": "PUB-03", 
+        "nama": "Majalah",
+        "harga": 35000,
+        "link_gambar": "https://placehold.co/400x400?text=PUB-03" 
+        },
+        {
+        "id": "PUB-04", 
+        "nama": "Buku Cerita Anak Ilustrasi",
+        "harga": 55000,
+        "link_gambar": "https://placehold.co/400x400?text=PUB-04" 
+        },
+        {
+        "id": "PUB-05", 
+        "nama": "Zine Independen",
+        "harga": 15000,
+        "link_gambar": "https://placehold.co/400x400?text=PUB-05" 
+        },
+        {
+        "id": "PUB-06", 
+        "nama": "Buku Tahunan Sekolah (Yearbook)",
+        "harga": 250000,
+        "link_gambar": "https://placehold.co/400x400?text=PUB-06" 
+        },
+        {
+        "id": "PUB-07", 
+        "nama": "Jurnal Akademik",
+        "harga": 65000,
+        "link_gambar": "https://placehold.co/400x400?text=PUB-07" 
+        },
+        {
+        "id": "PUB-08", 
+        "nama": "Buku Panduan (Manual Book)",
+        "harga": 30000,
+        "link_gambar": "https://placehold.co/400x400?text=PUB-08" 
+        },
+        {
+        "id": "PUB-09", 
+        "nama": "Buku Portofolio Desain",
+        "harga": 85000,
+        "link_gambar": "https://placehold.co/400x400?text=PUB-09" 
+        },
+        {
+        "id": "PUB-10", 
+        "nama": "Katalog Pameran Seni",
+        "harga": 95000,
+        "link_gambar": "https://placehold.co/400x400?text=PUB-10" 
+        }
+      ]
+    },
+    {
+      "kategori": "Poster & Cetak Format Besar",
+      "produk": [
+        {
+        "id": "LFR-01", 
+        "nama": "Poster A3+ Art Paper",
+        "harga": 5000,
+        "link_gambar": "https://placehold.co/400x400?text=LFR-01" 
+        },
+        {
+        "id": "LFR-02", 
+        "nama": "Spanduk / Flexi Banner",
+        "harga": 25000,
+        "link_gambar": "https://placehold.co/400x400?text=LFR-02" 
+        },
+        {
+        "id": "LFR-03", 
+        "nama": "X-Banner",
+        "harga": 65000,
+        "link_gambar": "https://placehold.co/400x400?text=LFR-03" 
+        },
+        {
+        "id": "LFR-04", 
+        "nama": "Roll-up Banner",
+        "harga": 250000,
+        "link_gambar": "https://placehold.co/400x400?text=LFR-04" 
+        },
+        {
+        "id": "LFR-05", 
+        "nama": "Backdrop Event",
+        "harga": 350000,
+        "link_gambar": "https://placehold.co/400x400?text=LFR-05" 
+        },
+        {
+        "id": "LFR-06", 
+        "nama": "Baliho Outdoor",
+        "harga": 500000,
+        "link_gambar": "https://placehold.co/400x400?text=LFR-06" 
+        },
+        {
+        "id": "LFR-07", 
+        "nama": "Umbul-umbul",
+        "harga": 45000,
+        "link_gambar": "https://placehold.co/400x400?text=LFR-07" 
+        },
+        {
+        "id": "LFR-08", 
+        "nama": "Stiker Kaca One Way Vision",
+        "harga": 85000,
+        "link_gambar": "https://placehold.co/400x400?text=LFR-08" 
+        },
+        {
+        "id": "LFR-09", 
+        "nama": "Cetak Kanvas Foto Besar",
+        "harga": 150000,
+        "link_gambar": "https://placehold.co/400x400?text=LFR-09" 
+        },
+        {
+        "id": "LFR-10", 
+        "nama": "Poster Albatros Matte",
+        "harga": 75000,
+        "link_gambar": "https://placehold.co/400x400?text=LFR-10" 
+        }
+      ]
+    },
+    {
+      "kategori": "Stiker & Label",
+      "produk": [
+        {
+        "id": "STK-01", 
+        "nama": "Stiker Vinyl Anti Air",
+        "harga": 12000,
+        "link_gambar": "https://placehold.co/400x400?text=STK-01" 
+        },
+        {
+        "id": "STK-02", 
+        "nama": "Stiker Chromo (Bahan Kertas)",
+        "harga": 8000,
+        "link_gambar": "https://placehold.co/400x400?text=STK-02" 
+        },
+        {
+        "id": "STK-03", 
+        "nama": "Stiker Transparan Bening",
+        "harga": 15000,
+        "link_gambar": "https://placehold.co/400x400?text=STK-03" 
+        },
+        {
+        "id": "STK-04", 
+        "nama": "Stiker Hologram",
+        "harga": 25000,
+        "link_gambar": "https://placehold.co/400x400?text=STK-04" 
+        },
+        {
+        "id": "STK-05", 
+        "nama": "Stiker Kiss-cut (Lembaran)",
+        "harga": 20000,
+        "link_gambar": "https://placehold.co/400x400?text=STK-05" 
+        },
+        {
+        "id": "STK-06", 
+        "nama": "Stiker Die-cut (Potong Putus)",
+        "harga": 22000,
+        "link_gambar": "https://placehold.co/400x400?text=STK-06" 
+        },
+        {
+        "id": "STK-07", 
+        "nama": "Label Barcode Kemasan",
+        "harga": 5000,
+        "link_gambar": "https://placehold.co/400x400?text=STK-07" 
+        },
+        {
+        "id": "STK-08", 
+        "nama": "Label Pengiriman Olshop",
+        "harga": 10000,
+        "link_gambar": "https://placehold.co/400x400?text=STK-08" 
+        },
+        {
+        "id": "STK-09", 
+        "nama": "Segel Garansi Pecah Telur",
+        "harga": 35000,
+        "link_gambar": "https://placehold.co/400x400?text=STK-09" 
+        },
+        {
+        "id": "STK-10", 
+        "nama": "Stiker Vektor Custom",
+        "harga": 18000,
+        "link_gambar": "https://placehold.co/400x400?text=STK-10" 
+        }
+      ]
+    },
+    {
+      "kategori": "Merchandise & Souvenir",
+      "produk": [
+        {
+        "id": "MRC-01", 
+        "nama": "Mug Keramik Cetak",
+        "harga": 20000,
+        "link_gambar": "https://placehold.co/400x400?text=MRC-01" 
+        },
+        {
+        "id": "MRC-02", 
+        "nama": "Pin Button Peniti",
+        "harga": 3500,
+        "link_gambar": "https://placehold.co/400x400?text=MRC-02" 
+        },
+        {
+        "id": "MRC-03", 
+        "nama": "Gantungan Kunci Akrilik",
+        "harga": 8000,
+        "link_gambar": "https://placehold.co/400x400?text=MRC-03" 
+        },
+        {
+        "id": "MRC-04", 
+        "nama": "Totebag Kanvas Sablon",
+        "harga": 35000,
+        "link_gambar": "https://placehold.co/400x400?text=MRC-04" 
+        },
+        {
+        "id": "MRC-05", 
+        "nama": "Pulpen Promosi Custom",
+        "harga": 4500,
+        "link_gambar": "https://placehold.co/400x400?text=MRC-05" 
+        },
+        {
+        "id": "MRC-06", 
+        "nama": "Flashdisk Kartu Cetak",
+        "harga": 65000,
+        "link_gambar": "https://placehold.co/400x400?text=MRC-06" 
+        },
+        {
+        "id": "MRC-07", 
+        "nama": "Payung Promosi",
+        "harga": 45000,
+        "link_gambar": "https://placehold.co/400x400?text=MRC-07" 
+        },
+        {
+        "id": "MRC-08", 
+        "nama": "Tumbler Grafir Laser",
+        "harga": 55000,
+        "link_gambar": "https://placehold.co/400x400?text=MRC-08" 
+        },
+        {
+        "id": "MRC-09", 
+        "nama": "Kipas Tangan Plastik",
+        "harga": 7000,
+        "link_gambar": "https://placehold.co/400x400?text=MRC-09" 
+        },
+        {
+        "id": "MRC-10", 
+        "nama": "Mousepad Custom",
+        "harga": 25000,
+        "link_gambar": "https://placehold.co/400x400?text=MRC-10" 
+        }
+      ]
+    },
+    {
+      "kategori": "Pakaian & Tekstil",
+      "produk": [
+        {
+        "id": "APP-01", 
+        "nama": "Kaos Sablon DTG",
+        "harga": 85000,
+        "link_gambar": "https://placehold.co/400x400?text=APP-01" 
+        },
+        {
+        "id": "APP-02", 
+        "nama": "Kaos Sablon DTF",
+        "harga": 75000,
+        "link_gambar": "https://placehold.co/400x400?text=APP-02" 
+        },
+        {
+        "id": "APP-03", 
+        "nama": "Kemeja Seragam PDH/PDL",
+        "harga": 135000,
+        "link_gambar": "https://placehold.co/400x400?text=APP-03" 
+        },
+        {
+        "id": "APP-04", 
+        "nama": "Jaket / Hoodie Komunitas",
+        "harga": 175000,
+        "link_gambar": "https://placehold.co/400x400?text=APP-04" 
+        },
+        {
+        "id": "APP-05", 
+        "nama": "Topi Trucker Custom",
+        "harga": 25000,
+        "link_gambar": "https://placehold.co/400x400?text=APP-05" 
+        },
+        {
+        "id": "APP-06", 
+        "nama": "Jersey Olahraga Printing",
+        "harga": 120000,
+        "link_gambar": "https://placehold.co/400x400?text=APP-06" 
+        },
+        {
+        "id": "APP-07", 
+        "nama": "Rompi Lapangan Bordir",
+        "harga": 110000,
+        "link_gambar": "https://placehold.co/400x400?text=APP-07" 
+        },
+        {
+        "id": "APP-08", 
+        "nama": "Celemek (Apron) Barista",
+        "harga": 65000,
+        "link_gambar": "https://placehold.co/400x400?text=APP-08" 
+        },
+        {
+        "id": "APP-09", 
+        "nama": "Masker Kain Full Print",
+        "harga": 12000,
+        "link_gambar": "https://placehold.co/400x400?text=APP-09" 
+        },
+        {
+        "id": "APP-10", 
+        "nama": "Goodie Bag Spunbond Sablon",
+        "harga": 6500,
+        "link_gambar": "https://placehold.co/400x400?text=APP-10" 
+        }
+      ]
+    },
+    {
+      "kategori": "Kebutuhan Event & Personal",
+      "produk": [
+        {
+        "id": "EVT-01", 
+        "nama": "Undangan Pernikahan",
+        "harga": 5000,
+        "link_gambar": "https://placehold.co/400x400?text=EVT-01" 
+        },
+        {
+        "id": "EVT-02", 
+        "nama": "Buku Tamu Hardcover",
+        "harga": 85000,
+        "link_gambar": "https://placehold.co/400x400?text=EVT-02" 
+        },
+        {
+        "id": "EVT-03", 
+        "nama": "Kartu Ucapan (Greeting Card)",
+        "harga": 3500,
+        "link_gambar": "https://placehold.co/400x400?text=EVT-03" 
+        },
+        {
+        "id": "EVT-04", 
+        "nama": "Sertifikat / Piagam Penghargaan",
+        "harga": 15000,
+        "link_gambar": "https://placehold.co/400x400?text=EVT-04" 
+        },
+        {
+        "id": "EVT-05", 
+        "nama": "Tiket Gelang Kertas Anti Sobek",
+        "harga": 1500,
+        "link_gambar": "https://placehold.co/400x400?text=EVT-05" 
+        },
+        {
+        "id": "EVT-06", 
+        "nama": "Photocard K-Pop / Koleksi",
+        "harga": 2000,
+        "link_gambar": "https://placehold.co/400x400?text=EVT-06" 
+        },
+        {
+        "id": "EVT-07", 
+        "nama": "Album Foto Photobook",
+        "harga": 250000,
+        "link_gambar": "https://placehold.co/400x400?text=EVT-07" 
+        },
+        {
+        "id": "EVT-08", 
+        "nama": "Papan Nama Meja (Tent Name)",
+        "harga": 12000,
+        "link_gambar": "https://placehold.co/400x400?text=EVT-08" 
+        },
+        {
+        "id": "EVT-09", 
+        "nama": "Bunting Flag Dekorasi",
+        "harga": 25000,
+        "link_gambar": "https://placehold.co/400x400?text=EVT-09" 
+        },
+        {
+        "id": "EVT-10", 
+        "nama": "Kartu Pos (Postcard)",
+        "harga": 4000,
+        "link_gambar": "https://placehold.co/400x400?text=EVT-10" 
+        }
+      ]
+    }
+  ]
+}

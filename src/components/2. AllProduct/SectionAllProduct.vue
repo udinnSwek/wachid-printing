@@ -18,7 +18,7 @@
             
             :class="[
                 'bg-white z-50 transition-transform duration-300',
-                'fixed top-0 left-0 h-screen w-[70%] md:static md:h-fit md:w-[35] md:pb-5q',
+                'fixed top-0 left-0 h-screen w-[70%] md:static md:h-fit md:w-[35%] md:pb-5',
                 sidebarAktif
                     ? 'translate-x-0'
                     : '-translate-x-full md:translate-x-0'

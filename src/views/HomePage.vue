@@ -1,8 +1,9 @@
 <template>
     <div>
+        <SectionHero />
         <sectionSliderProduk />
         <sectionPreviewProduct :dataKatalog = "dataKatalog"/>
-        <p>ini Halaman Home</p>
+        <!-- <p>ini Halaman Home</p> -->
     </div>
 </template>
 
@@ -11,6 +12,7 @@
     import { SupabaseClient } from '@supabase/supabase-js';
     import sectionPreviewProduct from '../components/1. Home/SectionPreviewProduct.vue'
     import sectionSliderProduk from '../components/1. Home/SectionSliderProduk.vue'
+    import SectionHero from '../components/1. Home/SectionHero.vue';
 
     const dataKatalog = ref()
 

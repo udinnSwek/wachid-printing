@@ -1,15 +1,18 @@
 <template> 
-    <div class="group flex flex-row md:flex-col h-full border border-yellow-400 rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-105 transition">
+    <div class="group flex flex-row md:flex-col h-full bg-white border border-yellow-500 overflow-hidden shadow-sm hover:shadow-lg hover:scale-105 transition">
         <div 
             class="md:w-full w-[45%] aspect-square bg-cover bg-center" 
             :style="{ backgroundImage: `url(${listProduk.gambar?.[0]?.url})` }">
         </div>
-        <div class="md:w-full w-[55%] px-4 py-8 md:p-4 flex flex-col item grow gap-16 md:gap-3 justify-between">
+        <div class="relative overflow-hidden group md:w-full w-[55%] px-4 py-8 md:p-4 flex flex-col item grow gap-3 justify-center md:justify-between">
             <div>
                 <p>{{ listProduk.nama }}</p>
                 <p class="font-bold text-base lg:text-lg">{{ formatRupiah(listProduk.harga_base) }}</p>
-            </div>   
-            <tombolBeli :dataProduk="listProduk" class="w-full justify-end" />
+            </div class="absolute inset-x-0 bottom-0
+                            translate-y-full
+                            group-hover:translate-y-0
+                            transition-transform duration-300>   
+            <tombolBeli :dataProduk="listProduk" class="w-full justify-center" />
             </div>
     </div>
 </template>

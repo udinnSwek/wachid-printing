@@ -5,15 +5,18 @@
 </template>
 
 <script setup>
+const nomorWA = import.meta.env.VITE_NOMOR_WHATSAPP
+
 // Menerima data produk dari parent
 const props = defineProps({
     dataProduk: Object
 })
 
 const kirimWA = () => {
-    const nomorWA = '+6281290849550';
     const pesan = `Halo, saya tertarik dengan ${props.dataProduk.nama}`;
     const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
     window.open(urlWA, '_blank');
 }
+
+console.log(nomorWA)
 </script>

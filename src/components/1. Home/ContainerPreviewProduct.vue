@@ -6,9 +6,9 @@
             'flex flex-col w-[80%] md:w-[80%] lg:w-[full] lg:max-w-300 gap-4 mx-auto mt-6',
             index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
         ]">
-                <cardCategory :dataKategori="kategori" class="bg-white w-full aspect-square md:w-[35%]"/>
+                <cardCategory :dataKategori="kategori" class=" w-full aspect-square md:w-[35%]" :index ="index"/>
             <div name="cardContainer" class="w-full md:w-[65%] grid grid-cols-2 md:grid-cols-3 gap-2.5">
-                <containerCardProduct :listProduk="kategori.produk"/>
+                <containerCardProduct :listProduk="kategori.produk" :index ="index"/>
             </div>
         </div>
         <div class="flex justify-center mt-8 mb-16">

@@ -1,5 +1,8 @@
 <template>
-    <div name="cardProduct" class="bg-white h-full border border-yellow-400 rounded-xl overflow-hidden shadow-sm flex flex-col hover:shadow-lg hover:scale-105 transition">
+    <div name="cardProduct" 
+        :class="['bg-white h-full border border-blue-900 overflow-hidden shadow-sm flex flex-col hover:shadow-lg hover:scale-105 transition',
+        index % 2 === 0? 'border-blue-900' : 'border-yellow-400'
+        ]">
         <div class="w-full aspect-square bg-cover bg-center bg-zinc-200" :style="{ backgroundImage: `url(${dataProduk.gambar?.[0]?.url})` }"></div>
         <div class="p-4 flex flex-col grow justify-center">
             <p>{{ dataProduk.nama }}</p>
@@ -10,7 +13,8 @@
 
 <script setup>
     defineProps({
-        dataProduk: Object
+        dataProduk: Object,
+        index: Number
     })
     
     function formatRupiah(angka) {

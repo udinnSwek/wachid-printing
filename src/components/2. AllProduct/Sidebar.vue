@@ -1,6 +1,6 @@
 <template>
   <div class="white rounded-lg max-w-md shadow-lg h-screen overflow-y-auto"> 
-    <p class="text-4xl font-bold pl-5 py-10 mb-5 text-white bg-zinc-800">Kategori Produk</p>
+    <p class="text-4xl font-bold pl-5 py-10 mb-5 text-white bg-blue-900">Kategori Produk</p>
     
     <!-- 1. Tambahkan v-model dan event @input -->
     <input 
@@ -20,9 +20,9 @@
       <!-- Tombol Accordion Tetap Sama -->
       <button 
         @click="kategoriAktif = (kategoriAktif === index ? null : index)"
-        class="w-full text-left px-5 py-5 white border-zinc-400 flex rounded-lg justify-between items-center transition cursor-pointer hover:bg-zinc-200 last:border-b-0"
+        class="w-full text-left px-5 py-5 white border-zinc-400 flex rounded-lg justify-between items-center transition cursor-pointer last:border-b-0"
          :class="{
-        'bg-zinc-800 hover:bg-zinc-600 text-white border-yellow-400 font-semibold': kategoriAktif === index,
+        'bg-blue-900 hover:bg-blue-600 text-white border-yellow-400 font-semibold': kategoriAktif === index,
         'bg-white hover:bg-zinc-200 border-zinc-400': kategoriAktif !== index
          }"
       >
@@ -45,7 +45,7 @@
                       'hover:pl-12 hover:py-5 ml-5 pl-10 py-3 border-l-2 cursor-pointer transition-all duration-200',
                       /* LOGIKA NYALA: Jika nama produk sama dengan yang terpilih, berikan class warna solid */
                       produkTerpilih === produk.nama 
-                        ? 'text-zinc-800 bg-zinc-200 border-yellow-500 font-bold pl-14' 
+                        ? 'text-zinc-800 bg-yellow-400 border-yellow-500 font-bold pl-14' 
                         : 'border-l border-yellow-400 hover:bg-zinc-200 text-zinc-700'
                     ]"
             >

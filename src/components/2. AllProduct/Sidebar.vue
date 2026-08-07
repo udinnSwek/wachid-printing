@@ -8,7 +8,7 @@
         @input="$emit('searchProduk', kataKunci)"
         type="text" 
         placeholder="Filter produk..." 
-        class="w-[95%] px-6 py-3 ml-4 bg-zinc-200 focus:outline-none rounded-full focus:border-yellow-400 transition"
+        class="w-[87%] px-6 py-3 ml-4 bg-zinc-200 focus:outline-none rounded-full transition focus:ring-2 focus:ring-yellow-600"
     />
     
     <!-- 2. Ubah @click menjadi memanggil fungsi jalankanReset -->
@@ -20,12 +20,12 @@
       <!-- Tombol Accordion Tetap Sama -->
       <button 
         @click="kategoriAktif = (kategoriAktif === index ? null : index)"
-        class="w-full text-left px-5 py-5 white border-zinc-400 flex rounded-lg justify-between items-center transition cursor-pointer last:border-b-0"
+        class="w-full text-left px-5 py-5 white flex rounded-lg justify-between items-center transition cursor-pointer last:border-b-0"
          :class="{
-        'bg-blue-900 hover:bg-blue-600 text-white border-yellow-400 font-semibold': kategoriAktif === index,
+        'bg-blue-900 hover:bg-blue-950 text-white border-2 border-b-white font-semibold': kategoriAktif === index,
         'bg-white hover:bg-zinc-200 border-zinc-400': kategoriAktif !== index
          }"
-      >
+      > 
       <span>{{ kategori.nama }}</span>
       <!-- (SVG Arrow Tetap Sama) -->
       <ChevronDownIcon
@@ -42,10 +42,10 @@
                 v-for="(produk, i) in kategori.produk" :key="i" 
                 @click="pilihProduk(produk.nama)"
                 :class="[
-                      'hover:pl-12 hover:py-5 ml-5 pl-10 py-3 border-l-2 cursor-pointer transition-all duration-200',
+                      'hover:pl-12 hover:py-5 ml-5 pl-10 pr-3 py-3 border-l-2 cursor-pointer transition-all duration-200',
                       /* LOGIKA NYALA: Jika nama produk sama dengan yang terpilih, berikan class warna solid */
                       produkTerpilih === produk.nama 
-                        ? 'text-zinc-800 bg-yellow-400 border-yellow-500 font-bold pl-14' 
+                        ? 'text-zinc-800 bg-yellow-400 border-l-yellow-500 border-t-white font-bold pl-14' 
                         : 'border-l border-yellow-400 hover:bg-zinc-200 text-zinc-700'
                     ]"
             >
@@ -78,6 +78,12 @@
     const kategoriAktif = ref(null)
     const kataKunci = ref('') // Variabel untuk menyimpan input teks
 
+    const scrollToTop = () => {
+        window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 'smooth' untuk meluncur halus, 'auto' untuk instan
+    })
+}
     // Fungsi untuk mereset semua pencarian
     const jalankanReset = () => {
         kataKunci.value = '' // Kosongkan input
@@ -90,6 +96,7 @@
         kataKunci.value = '' // Kosongkan input agar tidak tabrakan
         emit('filterProduk', nama) // Beritahu parent produk apa yang diklik
         emit('closeSidebar') // Beritahu parent untuk menutup sidebar
+        scrollToTop()
     }
 
     const viewAll = () => {

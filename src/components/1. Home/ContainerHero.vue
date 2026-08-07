@@ -5,11 +5,11 @@
                 <p class="font-bold text-3xl text-yellow-50">Semua Keperluan Percetakanmu ada di</p>  
                 <p class="font-bold text-7xl text-yellow-50">Wachid Printing</p>
             </div>
-            <button 
+            <router-link to="/all-product"
             class="bg-yellow-400 rounded-full py-3 px-6 hidden lg:block text-lg font-semibold w-fit hover:scale-105 hover:bg-yellow-500"
-            @click="">
+            >
                 Pesan Sekarang >    
-            </button>
+            </router-link>
         </div>
 
         <img :src="src"

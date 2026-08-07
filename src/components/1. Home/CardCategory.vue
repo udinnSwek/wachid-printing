@@ -19,7 +19,7 @@
 
 <script setup>
     defineProps({
-        dataKategori: Array,
+        dataKategori: Object,
         index: Number
     })
 </script>

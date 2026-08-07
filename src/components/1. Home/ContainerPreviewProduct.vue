@@ -3,11 +3,11 @@
         v-for="(kategori, index) in dataYangDitampilkan" 
         :key="index" 
         :class="[
-            'flex flex-col w-[80%] md:w-[80%] lg:w-[full] lg:max-w-300 gap-4 mx-auto mt-6',
+            'flex flex-col w-[80%] md:w-[80%] lg:w-[full] lg:max-w-300 gap-2 mx-auto mt-6',
             index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
         ]">
                 <cardCategory :dataKategori="kategori" class=" w-full aspect-square md:w-[35%]" :index ="index"/>
-            <div name="cardContainer" class="w-full md:w-[65%] grid grid-cols-2 md:grid-cols-3 gap-2.5">
+            <div name="cardContainer" class="w-full md:w-[65%] grid grid-cols-2 md:grid-cols-3">
                 <containerCardProduct :listProduk="kategori.produk" :index ="index"/>
             </div>
         </div>
@@ -31,6 +31,8 @@
     import cardCategory from './CardCategory.vue'
     import containerCardProduct from './ContainerCardProduct.vue'
 
+    const isLoading = ref()
+
     const fetchKatalog = async () => {
         // Query ini membaca tabel kategori, dan mengikutkan produk beserta gambarnya
         const { data, error } = await supabase
@@ -52,8 +54,7 @@
         if (error) {
             console.error("Gagal mengambil data katalog:", error.message)
         } else {
-            console.log("Data berhasil diambil:", data)
-            dataKatalog.value = data // Masukkan hasil query ke state kita
+            dataKatalog.value = data
         }
         isLoading.value = false
     }
@@ -64,7 +65,7 @@
 
     const dataKatalog = ref([])
 
-    console.log(dataKatalog)
+    // console.log(dataKatalog)
     
     const tampilkanSemua = ref(false)
 

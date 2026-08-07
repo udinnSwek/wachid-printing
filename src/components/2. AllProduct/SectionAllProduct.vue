@@ -4,7 +4,7 @@
         @click="sidebarAktif = false"
         class="fixed inset-0 bg-black/40 z-40"
     ></div>
-    <section class="flex flex-col pt-10 md:flex-row gap-4 justify-center pl-8 pr-4 text-xs md:text-base">
+    <section class="flex flex-col py-10 md:flex-row gap-4 justify-center pl-8 pr-4 text-xs md:text-base">
         <!-- Tangkap event searchProduk dari input teks Sidebar -->
          <button
             class="md:hidden px-5 py-3 bg-yellow-400 rounded w-fit font-semibold"
@@ -72,7 +72,6 @@
         if (error) {
             console.error("Gagal mengambil data katalog:", error.message)
         } else {
-            console.log("Data berhasil diambil:", data)
             dataKatalog.value = data // Masukkan hasil query ke state kita
         }
         isLoading.value = false

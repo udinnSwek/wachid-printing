@@ -1,6 +1,6 @@
 <template>
     <div>
-        <SectionHero />
+        <SectionHero class="shadow-lg"/>
         <sectionSliderProduk />
         <sectionPreviewProduct :dataKatalog = "dataKatalog"/>
         <!-- <p>ini Halaman Home</p> -->

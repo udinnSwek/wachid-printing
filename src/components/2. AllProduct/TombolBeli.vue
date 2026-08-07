@@ -1,5 +1,5 @@
 <template>
-    <button @click="kirimWA" class="px-4 py-2 bg-green-500 text-white rounded">
+    <button @click="kirimWA" class="px-4 py-2 bg-green-500 text-white">
         Beli via WhatsApp
     </button>
 </template>
@@ -18,5 +18,10 @@ const kirimWA = () => {
     window.open(urlWA, '_blank');
 }
 
-console.log(nomorWA)
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // 'smooth' untuk meluncur halus, 'auto' untuk instan
+  })
+}
 </script>

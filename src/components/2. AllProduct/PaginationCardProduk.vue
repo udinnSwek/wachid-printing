@@ -11,8 +11,19 @@
                 >
             </button>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 mt-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-0 mt-4">
             <cardAllProduct v-for="(produk, index) in listProdukTerbatas" :key="index" :listProduk="produk" />
+        </div>
+        <div class="flex justify-center items-center gap-4 mt-4">
+            <button @click="halamanSaatIni--" :disabled="halamanSaatIni <= 1">
+                <
+            </button>
+
+            <nomorHalaman v-for="angkaHalaman in angkaUrut" :key="angkaHalaman" :angkaHalaman="angkaHalaman" :halamanSaatIni="halamanSaatIni" @pindahHalaman="pindahHalaman"/>
+            
+            <button @click="halamanSaatIni++" :disabled="halamanSaatIni >= jumlahMaxHalaman || jumlahMaxHalaman === 0">
+                >
+            </button>
         </div>
     </div>
 </template>

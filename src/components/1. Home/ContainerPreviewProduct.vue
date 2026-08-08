@@ -46,7 +46,7 @@
                     nama,
                     deskripsi,
                     harga_base,
-                    link_gambar,
+                    slug,
                     gambar ( url )
                 )
             `)

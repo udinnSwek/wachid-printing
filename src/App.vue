@@ -9,12 +9,14 @@ import { supabase } from './supabaseClient.js';
 </script>
 
 <template>
-  <Header />
-  <NavBar />
-  <main class="">
-    <router-view :key="$route.fullPath">
-      
-    </router-view>
-  </main>
-  <Footer />
+  <div class="flex flex-col min-h-screen">
+    <Header />
+    <NavBar />
+    <main>
+      <router-view :key="$route.fullPath">
+        
+      </router-view>
+    </main>
+    <Footer class="mt-auto"/>
+  </div>
 </template>

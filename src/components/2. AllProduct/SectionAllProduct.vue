@@ -42,7 +42,6 @@
 
     // import dataKatalog from '../../data/list-produk.json'
     import sidebar from './Sidebar.vue'
-    import editViewBar from './EditViewBar.vue'
     import cardAllProduct from './CardAllProduct.vue'
     import paginationCardProduk from './PaginationCardProduk.vue'
 
@@ -64,7 +63,7 @@
                     nama,
                     deskripsi,
                     harga_base,
-                    link_gambar,
+                    slug,
                     gambar ( url )
                 )
             `)

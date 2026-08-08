@@ -1,5 +1,7 @@
 <template> 
-    <div class="group flex flex-row md:flex-col h-full bg-white border border-yellow-500 overflow-hidden shadow-sm hover:shadow-lg hover:scale-95 hover:border-blue-900 transition">
+    <RouterLink
+        :to="`/all-product/${listProduk.slug}`" 
+        class="group flex flex-row md:flex-col h-full bg-white border border-yellow-500 overflow-hidden shadow-sm hover:shadow-lg hover:scale-95 hover:border-blue-900 transition">
         <div 
             class="md:w-full w-[45%] aspect-square bg-cover bg-center" 
             :style="{ backgroundImage: `url(${listProduk.gambar?.[0]?.url})` }">
@@ -15,14 +17,14 @@
                             md:translate-y-full
                             md:group-hover:translate-y-0
                             transition-transform duration-300">
-                <tombolBeli :dataProduk="listProduk" class="w-full justify-center" />
+                <tombolBeli :namaProduk="listProduk.nama" class="w-full justify-center" />
             </div>
         </div>
-    </div>
+    </RouterLink>
 </template>
 
 <script setup>
-    import tombolBeli from './TombolBeli.vue'
+    import tombolBeli from '../TombolBeli.vue'
 
     defineProps({
         listProduk: Object

@@ -17,10 +17,27 @@ console.log('PROPS:', props)
 console.log('JUMLAH:', props.jumlahProduk)
 
 const kirimWA = () => {
-    const pesan = `Halo, saya tertarik dengan ${props.namaProduk} dengan jumlah ${props.jumlahProduk}`;
+    const pesan = `Halo Admin Wachid Printing, saya tertarik untuk memesan produk berikut:
+
+*Detail Pesanan*
+• Produk: ${props.namaProduk}
+• Jumlah: ${props.jumlahProduk || '(mohon isi sendiri)'} pcs
+
+*Catatan Pesanan*
+${props.catatan || 'Belum ada catatan khusus'}
+
+Mohon informasi mengenai:
+• Ketersediaan produk
+• Estimasi harga
+• Estimasi waktu pengerjaan
+• Biaya tambahan jika ada
+
+Terima kasih.`;
+
     const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+
     window.open(urlWA, '_blank');
-}
+};
 
 const scrollToTop = () => {
   window.scrollTo({

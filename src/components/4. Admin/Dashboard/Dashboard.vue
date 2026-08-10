@@ -184,9 +184,21 @@
       </div>
     </div>
   </div>
+  <!-- Tombol Logout -->
+        <button 
+          @click="handleLogout"
+          class="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200"
+          title="Log Out"
+        >
+          <!-- Menggunakan SVG Icon Logout (Heroicons) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+        </button>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 import { supabase } from '../../../supabaseClient.js';
 import { onMounted, ref, computed } from 'vue'
 
@@ -353,4 +365,28 @@ onMounted(() => {
   fetchData()
   fetchDaftarKategori()
 })
+
+const router = useRouter();
+
+const handleLogout = async () => {
+  // 1. Munculkan konfirmasi (opsional, untuk mencegah salah klik)
+  const isConfirmed = confirm("Apakah Anda yakin ingin keluar dari halaman Admin?");
+  
+  if (isConfirmed) {
+    try {
+      
+        const { error } = await supabase.auth.signOut()
+        if (error) throw error
+      
+
+      // (Opsional) Jika kamu menyimpan data user di localStorage secara manual, bersihkan di sini:
+      // localStorage.removeItem('user_session');
+
+      router.push('/');
+
+    } catch (error) {
+      alert("Gagal melakukan log out: " + error.message);
+    }
+  }
+};
 </script>

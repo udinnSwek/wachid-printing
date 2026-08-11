@@ -86,7 +86,7 @@
         // Cegah error flatMap jika dataKatalog masih kosong saat pertama kali load
         if (!dataKatalog.value || dataKatalog.value.length === 0) return []
         
-        return dataKatalog.value.flatMap(kategori => kategori.produk)
+        return dataKatalog.value.flatMap(kategori => kategori.produk).sort((a,b) => a.id - b.id )
     })
 
     const selectedProduk = ref(null)

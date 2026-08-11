@@ -206,6 +206,7 @@ const dataProduk = ref([])
 const jumlahKategori = ref(0)
 const daftarKategori = ref([])
 const selectedKategori = ref('')
+const selectedGambarId = ref(null) // <--- TAMBAHKAN INI
 const loading = ref(false)
 
 // State Modal & Form
@@ -245,6 +246,7 @@ const fetchData = async () => {
       gambar( id, url ),
       kategori ( id, nama )
     `)
+    .order('id', { ascending: true }) // <-- TAMBAHKAN BARIS INI (Urutkan berdasarkan ID)
 
   if (error) console.error(error.message)
   else dataProduk.value = data
@@ -275,6 +277,7 @@ const produkFiltered = computed(() => {
 const openModalAdd = () => {
   isEditMode.value = false
   selectedProdukId.value = null
+  selectedGambarId.value = null // <--- TAMBAHKAN INI
   form.value = { nama: '', harga_base: 0, kategori_id: '', gambar_url: '', deskripsi: '' }
   isModalOpen.value = true
 }
@@ -283,6 +286,8 @@ const openModalAdd = () => {
 const openModalEdit = (produk) => {
   isEditMode.value = true
   selectedProdukId.value = produk.id
+  selectedGambarId.value = produk.gambar[0]?.id || null // <--- SIMPAN ID GAMBAR DI SINI
+  
   form.value = {
     nama: produk.nama,
     harga_base: produk.harga_base,
@@ -321,9 +326,22 @@ const saveProduk = async () => {
 
       // 2. Update/Insert Gambar
       if (form.value.gambar_url) {
-        await supabase
-          .from('gambar')
-          .upsert({ produk_id: selectedProdukId.value, url: form.value.gambar_url })
+        if (selectedGambarId.value) {
+          // JIKA GAMBAR SUDAH ADA, LAKUKAN UPDATE BERDASARKAN GAMBAR.ID
+          const { error: errGambar } = await supabase
+            .from('gambar')
+            .update({ url: form.value.gambar_url }) 
+            .eq('id', selectedGambarId.value) // <--- TARGETKAN GAMBAR.ID
+            
+          if (errGambar) throw errGambar
+        } else {
+          // JIKA SEBELUMNYA PRODUK BELUM PUNYA GAMBAR, LAKUKAN INSERT
+          const { error: errGambar } = await supabase
+            .from('gambar')
+            .insert([{ produk_id: selectedProdukId.value, url: form.value.gambar_url }])
+            
+          if (errGambar) throw errGambar
+        }
       }
     } else {
       // 1. Insert Produk Baru
@@ -337,9 +355,11 @@ const saveProduk = async () => {
 
       // 2. Insert Gambar Produk
       if (form.value.gambar_url && produkBaru) {
-        await supabase
+        const { error: errGambar } = await supabase
           .from('gambar')
-          .insert([{ produk_id: produkBaru.id, url: form.value.gambar_url }])
+          .insert([{ produk_id: produkBaru.id, url: form.value.gambar_url }]) 
+          
+        if (errGambar) throw errGambar
       }
     }
 
@@ -370,7 +390,7 @@ const router = useRouter();
 
 const handleLogout = async () => {
   // 1. Munculkan konfirmasi (opsional, untuk mencegah salah klik)
-  const isConfirmed = confirm("Apakah Anda yakin ingin keluar dari halaman Admin?");
+  const isConfirmed = confirm("Apakah A nda yakin ingin keluar dari halaman Admin?");
   
   if (isConfirmed) {
     try {

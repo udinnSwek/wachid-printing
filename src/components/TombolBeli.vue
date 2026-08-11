@@ -13,9 +13,6 @@ const props = defineProps({
     jumlahProduk: Number
 })
 
-console.log('PROPS:', props)
-console.log('JUMLAH:', props.jumlahProduk)
-
 const kirimWA = () => {
     const pesan = `Halo Admin Wachid Printing, saya tertarik untuk memesan produk berikut:
 

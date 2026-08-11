@@ -55,6 +55,7 @@
             console.error("Gagal mengambil data katalog:", error.message)
         } else {
             dataKatalog.value = data
+            // console.log(data)
         }
         isLoading.value = false
     }
@@ -76,5 +77,4 @@
             return dataKatalog.value.slice(0, 2) 
         }
     })
-
 </script>

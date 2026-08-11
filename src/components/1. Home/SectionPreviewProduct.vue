@@ -8,7 +8,4 @@
 
 <script setup>
     import containerPreviewProduct from './ContainerPreviewProduct.vue'
-    defineProps({
-        dataKatalog: Array
-    })
 </script>

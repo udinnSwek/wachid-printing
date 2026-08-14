@@ -1,18 +1,18 @@
 <template>
     <div class="flex flex-col">
         <div class="flex justify-center items-center gap-4 mt-4">
-            <button @click="halamanSaatIni--" :disabled="halamanSaatIni <= 1">
+            <button @click="halamanSaatIni--" :disabled="halamanSaatIni <= 1" class="cursor-pointer">
                 <
             </button>
 
-            <nomorHalaman v-for="angkaHalaman in angkaUrut" :key="angkaHalaman" :angkaHalaman="angkaHalaman" :halamanSaatIni="halamanSaatIni" @pindahHalaman="pindahHalaman"/>
+            <nomorHalaman v-for="angkaHalaman in angkaUrut" :key="angkaHalaman" :angkaHalaman="angkaHalaman" :halamanSaatIni="halamanSaatIni" @pindahHalaman="pindahHalaman" class="cursor-pointer"/>
             
-            <button @click="halamanSaatIni++" :disabled="halamanSaatIni >= jumlahMaxHalaman || jumlahMaxHalaman === 0">
+            <button @click="halamanSaatIni++" :disabled="halamanSaatIni >= jumlahMaxHalaman || jumlahMaxHalaman === 0" class="cursor-pointer">
                 >
             </button>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-0 mt-4">
-            <cardAllProduct v-for="(produk, index) in listProdukTerbatas" :key="index" :listProduk="produk" />
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-0 mt-4">
+            <cardAllProduct v-for="(produk, index) in listProdukTerbatas" :key="index" :listProduk="produk" :dataKatalog="dataKatalog"/>
         </div>
         <div class="flex justify-center items-center gap-4 mt-4">
             <button @click="halamanSaatIni--" :disabled="halamanSaatIni <= 1">
@@ -39,6 +39,9 @@
         semuaProduk: {
             type: Array,
             default: () => [] // Cara yang lebih aman untuk memberikan nilai default pada props Array
+        },
+        dataKatalog: {
+            type: Object
         }
     })
 

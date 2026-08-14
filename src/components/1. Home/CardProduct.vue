@@ -6,9 +6,12 @@
         index % 2 === 0? 'border-blue-900' : 'border-yellow-400'
         ]">
             <div class="w-full aspect-square bg-cover bg-center bg-zinc-200" :style="{ backgroundImage: `url(${dataProduk.gambar?.[0]?.url})` }"></div>
-            <div class="p-4 flex flex-col grow justify-center">
-                <p>{{ dataProduk.nama }}</p>
-                <p class="font-bold text-base lg:text-lg">{{ formatRupiah(dataProduk.harga_base) }}</p>
+            <div class="py-2 px-5 gap-1 flex flex-col grow justify-center">
+                <p class="font-serif font-semibold text-base lg:text-lg">{{ dataProduk.nama }}</p>
+                <div>
+                    <p class="text-zinc-400 text-sm">Mulai</p>
+                    <p class="font-serif font-semibold text-base lg:text-lg">{{ formatRupiah(dataProduk.harga_base) }}</p>
+                </div>
             </div>   
     </RouterLink>
 </template>

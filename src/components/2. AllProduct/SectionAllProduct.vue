@@ -31,7 +31,7 @@
             @searchProduk="handleSearch"
         />
         
-        <paginationCardProduk class="w-full md:w-[65%]" :semuaProduk="produkYangDitampilkan"/>
+        <paginationCardProduk class="w-full md:w-[65%]" :semuaProduk="produkYangDitampilkan" :dataKatalog="dataKatalog"/>
     </section>
 </template>
 
@@ -86,7 +86,13 @@
         // Cegah error flatMap jika dataKatalog masih kosong saat pertama kali load
         if (!dataKatalog.value || dataKatalog.value.length === 0) return []
         
-        return dataKatalog.value.flatMap(kategori => kategori.produk).sort((a,b) => a.id - b.id )
+        return dataKatalog.value.flatMap(kategori => {
+            return kategori.produk.map(produk => ({
+                ...produk,                            // Ambil semua data produk yang ada
+                namaKategori: kategori.nama  // Tambahkan key baru. (Sesuaikan 'nama_kategori' dengan key asli di data Anda)
+                }))
+        })
+        .sort((a, b) => a.id - b.id)
     })
 
     const selectedProduk = ref(null)

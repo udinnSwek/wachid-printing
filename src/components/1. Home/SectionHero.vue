@@ -1,7 +1,7 @@
 <template>
     <section class="w-full overflow-hidden">
         <div 
-        class="flex w-full transition-transform duration-700 h-fit lg:h-119.5"
+        class="flex w-full transition-transform duration-700 h-fit lg:h-175"
         :style="{ transform: `translateX(-${currentIndex * 100}%)`}"
         >
             <ContainerHero v-for="(img, index) in heroImage" :key="index" :src="getImgUrl(img)" alt="Hero Image"

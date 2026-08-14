@@ -1,1 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-serif: "Halant", serif;
+  --font-sans: "Nunito Sans", sans-serif;
+  --animate-infinite-scroll: infinite-scroll 20s linear infinite;
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@utility font-serif {
+  font-family: var(--font-serif);
+  letter-spacing: -0.05em;
+}

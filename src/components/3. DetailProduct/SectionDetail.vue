@@ -1,19 +1,21 @@
 <template>
-    <section class="flex flex-col md:flex-row w-full md:w-[80%] my-10 gap-6 px-10">
-        <div class="w-full md:w-[50%] bg-white">
-            <p class="text-3xl font-bold mb-2">{{ dataProduk.nama }}</p>
-            <div class="w-full aspect-square bg-cover bg-center bg-zinc-200" :style="{ backgroundImage: `url(${dataProduk.gambar?.[0]?.url})` }"></div>
-        </div>
-        <div class="flex flex-col justify-between w-full md:w-[50%]">
-            <div class="mb-6">
-                <p class="font-bold">Deskripsi Produk</p>
-                <p>{{ dataProduk.deskripsi }}</p>
-            </div>  
-            <div class="flex flex-col h-full pt-3 border border-blue-900 rounded-lg justify-between">
-                <CountProduct :harga="dataProduk.harga_base" @update-jumlah="jumlahProduk = $event" class="pl-6"/>
-                <TombolBeli :jumlahProduk="jumlahProduk" :namaProduk="dataProduk.nama" class="w-full rounded-b-lg"/>
+    <section class="w-full py-10 px-10">
+        <div class="flex flex-col md:flex-row max-w-400 mx-auto gap-6">
+            <div class="w-full h-full md:w-[50%]">
+                <p class="text-3xl font-bold mb-2">{{ dataProduk.nama }}</p>
+                <div class="w-full aspect-square bg-cover bg-center bg-zinc-200" :style="{ backgroundImage: `url(${dataProduk.gambar?.[0]?.url})` }"></div>
             </div>
-        </div> 
+            <div class="flex flex-col justify-between w-full md:w-[50%] grow gap-3">
+                <div class="pl-6 shadow-lg py-3 bg-white">
+                    <p class="font-bold">Deskripsi Produk</p>
+                    <p>{{ dataProduk.deskripsi }}</p>
+                </div>  
+                <div class="flex flex-col h-full pt-3 shadow-lg justify-between bg-white">
+                    <CountProduct :harga="dataProduk.harga_base" @update-jumlah="jumlahProduk = $event" class="pl-6"/>
+                    <TombolBeli :jumlahProduk="jumlahProduk" :namaProduk="dataProduk.nama" class="w-full rounded-b-lg"/>
+                </div>
+            </div> 
+        </div>
     </section>
 </template>
 <script setup>

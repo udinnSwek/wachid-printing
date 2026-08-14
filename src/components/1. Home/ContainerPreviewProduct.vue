@@ -3,11 +3,11 @@
         v-for="(kategori, index) in dataYangDitampilkan" 
         :key="index" 
         :class="[
-            'flex flex-col w-[80%] md:w-[80%] lg:w-[full] lg:max-w-300 gap-2 mx-auto mt-6',
+            'flex flex-col w-[80%] md:w-[80%] lg:w-[full] lg:max-w-300 gap-2 mx-auto',
             index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
         ]">
-                <cardCategory :dataKategori="kategori" class=" w-full aspect-square md:w-[35%]" :index ="index"/>
-            <div name="cardContainer" class="w-full md:w-[65%] grid grid-cols-2 md:grid-cols-3">
+                <cardCategory :dataKategori="kategori" class=" w-full md:aspect-square md:w-[40%]" :index ="index"/>
+            <div name="cardContainer" class="w-full md:w-[60%] grid grid-cols-2 md:grid-cols-3">
                 <containerCardProduct :listProduk="kategori.produk" :index ="index"/>
             </div>
         </div>

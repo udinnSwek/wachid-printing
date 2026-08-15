@@ -1,15 +1,15 @@
 <template>
 
   <!-- Background Layar Penuh -->
-  <div class="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-sans text-gray-800">
+  <div class="min-h-screen bg-gray-50 flex items-center justify-center p-4 text-gray-800">
     
     <!-- Kotak Login (Card) -->
-    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+    <div class="max-w-md w-full bg-white rounded-sm shadow-md overflow-hidden border border-gray-100">
       
       <!-- Bagian Header/Logo -->
       <div class="p-8 pb-6 text-center bg-white border-b border-gray-100">
-        <h1 class="text-3xl font-extrabold text-teal-600 tracking-wider mb-2">KATALOGKU.</h1>
-        <p class="text-gray-500 text-sm">Silakan masuk ke panel admin</p>
+        <h1 class="text-3xl font-serif font-semibold text-zinc-800 mb-2">Login Dashboard</h1>
+        <p class="text-zinc-400 text-sm">Login terlebih dahulu untuk masuk halaman dashboard</p>
       </div>
 
       <!-- Bagian Form -->
@@ -22,8 +22,8 @@
             <input
               v-model="email"
               type="email"
-              placeholder="admin@katalog.com"
-              class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-gray-50 transition-all"
+              placeholder="email@gmail"
+              class="w-[87%] px-6 py-3 ml-4 bg-zinc-200 focus:outline-none rounded-sm transition focus:ring-2 focus:ring-yellow-600"
               required
             >
           </div>
@@ -35,7 +35,7 @@
               v-model="password"
               type="password"
               placeholder="••••••••"
-              class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-gray-50 transition-all"
+              class="w-[87%] px-6 py-3 ml-4 bg-zinc-200 focus:outline-none rounded-sm transition focus:ring-2 focus:ring-yellow-600"
               required
             >
           </div>
@@ -43,17 +43,17 @@
           <!-- Checkbox Ingat Saya & Lupa Password -->
           <div class="flex items-center justify-between text-sm">
             <label class="flex items-center gap-2 cursor-pointer text-gray-600">
-              <input type="checkbox" class="rounded text-teal-600 focus:ring-teal-500 border-gray-300">
+              <input type="checkbox" class="rounded text-yellow-400 focus:ring-yellow-400 border-gray-300">
               <span>Ingat saya</span>
             </label>
-            <a href="#" class="text-teal-600 hover:text-teal-700 font-medium transition-colors">Lupa Password?</a>
+            <!-- <a href="#" class="text-zinc-400 underline hover:text-yellow-400 font-medium transition-colors">Lupa Password?</a> -->
           </div>
 
           <!-- Tombol Login -->
           <button
             type="submit"
             :disabled="isLoading"
-            class="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-teal-400 text-white font-bold py-3 px-4 rounded-lg transition-colors flex justify-center items-center gap-2 shadow-sm"
+            class="w-full bg-yellow-400 hover:bg-yellow-500 disabled:bg-yellow-500 text-zinc-800 font-bold py-3 px-4 rounded-lg transition-colors flex justify-center items-center gap-2 shadow-sm cursor-pointer"
           >
             <span v-if="isLoading">Memproses...</span>
             <span v-else>Masuk ke Dashboard</span>

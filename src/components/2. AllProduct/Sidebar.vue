@@ -12,7 +12,7 @@
     />
     
     <!-- 2. Ubah @click menjadi memanggil fungsi jalankanReset -->
-    <button @click="viewAll" class="m-5 px-6 py-3 rounded-sm bg-yellow-400 hover:bg-yellow-500 cursor-pointer block font-semibold">
+    <button @click="viewAll" class="ml-4 my-6 px-6 py-3 rounded-sm bg-yellow-400 hover:bg-yellow-500 cursor-pointer block font-semibold">
         view all
     </button>
 

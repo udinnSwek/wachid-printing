@@ -2,7 +2,7 @@
     <RouterLink
         :to="`/all-product/${dataProduk.slug}`" 
         name="cardProduct" 
-        :class="['bg-white h-full border border-blue-900 overflow-hidden shadow-sm flex flex-col hover:shadow-lg hover:scale-95 transition',
+        :class="['bg-white h-full border border-blue-900 overflow-hidden shadow-md flex flex-col hover:shadow-lg hover:scale-95 transition rounded-sm',
         index % 2 === 0? 'border-blue-900' : 'border-yellow-400'
         ]">
             <div class="w-full aspect-square bg-cover bg-center bg-zinc-200" :style="{ backgroundImage: `url(${dataProduk.gambar?.[0]?.url})` }"></div>

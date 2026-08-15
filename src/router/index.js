@@ -48,9 +48,16 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const { data: { session } } = await supabase.auth.getSession()
 
+  // 1. Jika butuh Auth tapi user belum login -> Lempar ke Login
   if (to.meta.requiresAuth && !session) {
     next('/login')
-  } else {
+  } 
+  // 2. Jika user SUDAH login tapi mencoba membuka halaman Login -> Lempar ke Dashboard
+  else if (to.path === '/login' && session) {
+    next('/admin') 
+  } 
+  // 3. Selain kondisi di atas -> Lanjutkan perjalanan normal
+  else {
     next()
   }
 })

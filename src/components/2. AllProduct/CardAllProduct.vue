@@ -1,7 +1,7 @@
 <template> 
     <RouterLink
         :to="`/all-product/${listProduk.slug}`" 
-        class="group flex flex-row md:flex-col h-full bg-white border border-yellow-500 overflow-hidden shadow-sm hover:shadow-lg hover:scale-95 hover:border-blue-900 transition">
+        class="group flex flex-row md:flex-col h-full bg-white border border-yellow-500 overflow-hidden shadow-sm hover:shadow-lg hover:scale-95 hover:border-blue-900 transition rounded-sm">
         <div 
             class="md:w-full w-[45%] aspect-square bg-cover bg-center" 
             :style="{ backgroundImage: `url(${listProduk.gambar?.[0]?.url})` }">

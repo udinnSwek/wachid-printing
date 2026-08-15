@@ -7,7 +7,7 @@
             index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
         ]">
                 <cardCategory :dataKategori="kategori" class=" w-full md:aspect-square md:w-[40%]" :index ="index"/>
-            <div name="cardContainer" class="w-full md:w-[60%] grid grid-cols-2 md:grid-cols-3">
+            <div name="cardContainer" class="w-full md:w-[60%] grid grid-cols-2 md:grid-cols-3 gap-2">
                 <containerCardProduct :listProduk="kategori.produk" :index ="index"/>
             </div>
         </div>

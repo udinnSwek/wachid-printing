@@ -58,7 +58,7 @@
 <style scoped>
 /* Gunakan CSS murni di Vue agar animasi 100% dijamin jalan tanpa bergantung config Tailwind */
 .scroller {
-  animation: geser-terus 40s linear infinite;
+  animation: geser-terus 80s linear infinite;
 }
 
 .scroller-reverse {

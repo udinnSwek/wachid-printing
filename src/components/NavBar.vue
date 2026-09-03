@@ -3,17 +3,17 @@
       <router-link to="/" 
       class="text-black font-semibold transition hover:bg-yellow-500 hover:text-white p-4"
       active-class="text-black font-semibold transition hover:bg-yellow-500 hover:text-white p-4 border-b-4 border-blue-900">
-        Home
+        Beranda
       </router-link>
       <router-link to="/all-product" id="nav-all-product" 
       class="text-black font-semibold transition hover:bg-yellow-500 hover:text-white p-4"
       active-class="text-black font-semibold transition hover:bg-yellow-500 hover:text-white p-4 border-b-4 border-blue-900">
-        All Product
+        Semua Produk
       </router-link>
       <router-link to="/about-us" 
       class="text-black font-semibold transition hover:bg-yellow-500 hover:text-white p-4"
       active-class="text-black font-semibold transition hover:bg-yellow-500 hover:text-white p-4 border-b-4 border-blue-900">
-        About Us
+        Tentang Kami
       </router-link>
   </nav>
 </template>

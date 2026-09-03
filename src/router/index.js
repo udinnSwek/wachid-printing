@@ -13,28 +13,35 @@ const router = createRouter({
     {
       path: '/',          // Jika user membuka web.com/
       name: 'beranda',
-      component: Home // Tampilkan komponen ini
+      component: Home, // Tampilkan komponen ini
+      meta: { breadcrumb: 'Beranda' }
     },
     {
       path: '/all-product',
       name: 'all-product',
-      component: AllProduct
+      component: AllProduct,
+      meta: { breadcrumb: 'Semua Produk' }
     },
     {
       path: '/all-product/:slug',
       name: 'detail-produk',
-      component: DetailProduct
+      component: DetailProduct,
+      meta: { breadcrumb: ':slug' }
     },
     {
       path: '/admin',
       name: 'dashboard',
       component: Admin,
-      meta: { requiresAuth: true }
+      meta: { 
+        requiresAuth: true,
+        breadcrumb: 'Dashboard' 
+       }
     },
     {
       path: '/about-us',
       name: 'about-us',
-      component: AboutUs
+      component: AboutUs,
+      meta: { breadcrumb: 'About Us' }
     },
     {
       path: '/login',
@@ -45,21 +52,19 @@ const router = createRouter({
 })
 
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, from) => {
   const { data: { session } } = await supabase.auth.getSession()
 
   // 1. Jika butuh Auth tapi user belum login -> Lempar ke Login
   if (to.meta.requiresAuth && !session) {
-    next('/login')
+    return '/login'
   } 
   // 2. Jika user SUDAH login tapi mencoba membuka halaman Login -> Lempar ke Dashboard
   else if (to.path === '/login' && session) {
-    next('/admin') 
+    return '/admin' 
   } 
-  // 3. Selain kondisi di atas -> Lanjutkan perjalanan normal
-  else {
-    next()
-  }
+
+  return true
 })
 
 export default router

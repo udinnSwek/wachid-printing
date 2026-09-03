@@ -1,7 +1,7 @@
 <template>
 
   <!-- Background Layar Penuh -->
-  <div class="min-h-screen bg-gray-50 flex items-center justify-center p-4 text-gray-800">
+  <div class="bg-gray-50 flex  justify-center p-12 text-gray-800">
     
     <!-- Kotak Login (Card) -->
     <div class="max-w-md w-full bg-white rounded-sm shadow-md overflow-hidden border border-gray-100">

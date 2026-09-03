@@ -8,7 +8,7 @@ import DetailProduct from '../views/DetailProduct.vue'
 import Login from '../views/Login.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',          // Jika user membuka web.com/

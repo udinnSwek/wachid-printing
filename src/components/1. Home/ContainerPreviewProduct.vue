@@ -40,9 +40,9 @@
             .select(`
                 id,
                 nama,
+                url,
                 produk (
                     id,
-                    kode_produk,
                     nama,
                     deskripsi,
                     harga_base,
@@ -50,6 +50,7 @@
                     gambar ( url )
                 )
             `)
+            .order('id', {ascending: true})
 
         if (error) {
             console.error("Gagal mengambil data katalog:", error.message)

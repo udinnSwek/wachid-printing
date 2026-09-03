@@ -10,7 +10,7 @@
             class="md:hidden px-5 py-3 bg-yellow-400 rounded w-fit font-semibold"
             @click="sidebarAktif = true"
         >
-            ☰ Pilih Produk
+            ☰ Filter Produk
         </button>
         <sidebar 
             :listProduk="dataKatalog"
@@ -29,28 +29,29 @@
             @filterProduk="filterProduk"
             @resetFilter="resetFilter"
             @searchProduk="handleSearch"
+            @filterKategori="filterKategori"
         />
         
-        <paginationCardProduk class="w-full md:w-[65%]" :semuaProduk="produkYangDitampilkan" :dataKatalog="dataKatalog"/>
+        <paginationCardProduk class="w-full md:w-[65%]" :semuaProduk="produkYangDitampilkan" :dataKatalog="dataKatalog" :kataKunci="kataKunci" :isLoading="isLoading"/>
     </section>
 </template>
 
 <script setup>
-    import { supabase } from '../../supabaseClient.js'
-
     import { ref, computed, watch, onMounted } from 'vue'
+    import { supabase } from '../../supabaseClient.js'
+    import { useRoute } from 'vue-router'
 
     // import dataKatalog from '../../data/list-produk.json'
     import sidebar from './Sidebar.vue'
-    import cardAllProduct from './CardAllProduct.vue'
     import paginationCardProduk from './PaginationCardProduk.vue'
 
     // 4. Ubah dataKatalog menjadi variabel reaktif kosong
     const dataKatalog = ref([])
-    const isLoading = ref(true) // Opsional: Untuk status loading
+    const isLoading = ref(false) // Opsional: Untuk status loading
 
     // 5. Buat fungsi untuk mengambil data relasional dari Supabase
     const fetchKatalog = async () => {
+        isLoading.value = true
         // Query ini membaca tabel kategori, dan mengikutkan produk beserta gambarnya
         const { data, error } = await supabase
             .from('kategori')
@@ -59,7 +60,6 @@
                 nama,
                 produk (
                     id,
-                    kode_produk,
                     nama,
                     deskripsi,
                     harga_base,
@@ -67,6 +67,7 @@
                     gambar ( url )
                 )
             `)
+            .order('id', {ascending:true})
 
         if (error) {
             console.error("Gagal mengambil data katalog:", error.message)
@@ -76,9 +77,21 @@
         isLoading.value = false
     }
 
+    const route = useRoute()
+
     // 6. Jalankan fetchKatalog saat komponen dimuat di layar
     onMounted(() => {
         fetchKatalog()
+    })
+
+    onMounted(() => {
+        // 1. Cek apakah ada titipan pesan 'kategori' di URL
+        const kategoriDariUrl = route.query.kategori
+        
+        if (kategoriDariUrl) {
+            // 2. Jika ada, langsung set state kategori kita dengan nama tersebut!
+            selectedKategori.value = kategoriDariUrl
+        }
     })
 
     // 7. Sesuaikan computed semuaProduk agar membaca dari .value
@@ -96,13 +109,22 @@
     })
 
     const selectedProduk = ref(null)
+    const selectedKategori= ref(null)
     const kataKunci = ref('') // Tambahkan state untuk menyimpan ketikan user
     const sidebarAktif = ref(false) // State untuk mengontrol sidebar
 
     // 1. Saat klik produk dari List Accordion
     const filterProduk = (namaProduk) => {
         selectedProduk.value = semuaProduk.value.find(produk => produk.nama === namaProduk)
-        kataKunci.value = '' // Matikan filter teks jika user memilih dari list
+        selectedKategori.value = null // (Opsional) Reset kategori agar tidak bertabrakan
+        kataKunci.value = '' 
+    }
+
+    const filterKategori = (namaKategori) => {
+        selectedKategori.value = namaKategori
+        selectedProduk.value = null // Reset produk agar muncul semua isi kategori
+        kataKunci.value = ''
+        console.log(selectedKategori.value)
     }
 
     // 2. Saat klik tombol 'view all'
@@ -119,24 +141,26 @@
 
     // Asisten pintar yang menentukan data final yang dikirim ke Pagination
     const produkYangDitampilkan = computed(() => {
-        
-        // A. Jika ada produk yang diklik spesifik dari sidebar (via <li>)
-        if (selectedProduk.value !== null) {
-            return [selectedProduk.value]
-        }
-        
-        // B. Jika user sedang mengetik sesuatu di input box (filter berdasarkan huruf)
-        if (kataKunci.value.trim() !== '') {
-            return semuaProduk.value.filter(produk => 
-                // toLowerCase() memastikan pencarian tidak peduli huruf besar/kecil
-                produk.nama.toLowerCase().includes(kataKunci.value.toLowerCase())
+        // 1. Prioritas Pertama: Jika user mencari via teks
+        if (kataKunci.value) {
+            return semuaProduk.value.filter(p => 
+                p.nama.toLowerCase().includes(kataKunci.value.toLowerCase())
             )
         }
-        
-        // C. Jika null dan input teks kosong, tampilkan semuanya
+
+        // 2. Prioritas Kedua: Jika user mengklik 1 produk spesifik
+        if (selectedProduk.value) {
+            return [selectedProduk.value] // Dibungkus array agar tetap bisa di-loop v-for
+        }
+
+        // 3. Prioritas Ketiga: Jika user memilih kategori dari dropdown
+        if (selectedKategori.value) {
+            return semuaProduk.value.filter(p => p.namaKategori === selectedKategori.value)
+        }
+
+        // 4. Default: Jika tidak ada filter yang aktif, tampilkan semua
         return semuaProduk.value
     })
-
         watch(sidebarAktif, (value) => {
             if (value) {
                 document.body.classList.add('overflow-hidden')

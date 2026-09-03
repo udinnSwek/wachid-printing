@@ -2,10 +2,8 @@
 import Header from './components/HeaderMain.vue'
 import NavBar from './components/NavBar.vue'
 import Footer from './components/Footer.vue'
-import Coba from './components/BelajarComponent/coba.vue'
-import Challenge from './components/BelajarVueGPT/challenge.vue'
 import TombolWhatsApp from './components/TombolWhatsApp.vue'
-import { supabase } from './supabaseClient.js';
+import Breadcrumb from './components/Breadcrumb.vue'
 
 </script>
 
@@ -13,7 +11,8 @@ import { supabase } from './supabaseClient.js';
   <div class="flex flex-col min-h-screen">
     <Header />
     <NavBar />
-    <main>
+    <main class="flex-1">
+      <Breadcrumb class="px-10 md:px-[12.5%] shadow-md" />
       <router-view :key="$route.fullPath">
         
       </router-view>

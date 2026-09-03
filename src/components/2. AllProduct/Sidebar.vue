@@ -21,10 +21,10 @@
         <div v-for="(kategori, index) in listProduk" :key="index" class="px-5">
           <!-- Tombol Accordion Tetap Sama -->
             <button 
-                @click="kategoriAktif = (kategoriAktif === index ? null : index)"
+                @click="pilihKategori(kategori.nama, index)"
                 class="w-full text-left text-zinc-600 px-5 py-5 white flex rounded-sm justify-between items-center transition cursor-pointer last:border-b-0 hover:bg-zinc-200"
                 :class="{
-                'text-zinc-900 font-semibold': kategoriAktif === index,
+                'bg-zinc-200 text-zinc-900 font-semibold': kategoriAktif === index,
                 'bg-white border-zinc-400': kategoriAktif !== index
                 }"
             > 
@@ -62,6 +62,7 @@
 
 <script setup>
     import { ref } from 'vue'
+    import { useRouter, useRoute } from 'vue-router';
     import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/vue/24/solid'
 
     defineProps({
@@ -76,10 +77,12 @@
     })
 
     // Daftarkan event searchProduk
-    const emit = defineEmits(['filterProduk', 'resetFilter', 'searchProduk', 'closeSidebar'])
+    const emit = defineEmits(['filterProduk', 'resetFilter', 'searchProduk', 'closeSidebar','filterKategori'])
 
     const kategoriAktif = ref(null)
     const kataKunci = ref('') // Variabel untuk menyimpan input teks
+    const router = useRouter()
+    const route = useRoute()
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -102,7 +105,24 @@
         scrollToTop()
     }
 
+    const pilihKategori = (namaKategori, index) => {
+        if (kategoriAktif.value === index) {
+            kategoriAktif.value = null;
+            emit('filterKategori', null); // Kirim null untuk mereset filter
+        } 
+        // Jika user mengklik kategori lain (artinya ingin MEMBUKA)
+        else {
+            kategoriAktif.value = index;
+            emit('filterKategori', namaKategori); // Kirim nama kategori untuk difilter
+        }
+    }
+
     const viewAll = () => {
+    router.replace({ 
+                path: route.path, // Tetap di rute saat ini (misal: /all-product)
+                query: {}         // Kosongkan query-nya
+            })
+
     kategoriAktif.value = null
     jalankanReset()
     }

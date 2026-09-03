@@ -10,11 +10,11 @@
             <div class="flex flex-col justify-between gap-2">
                 <div>
                     <p class="text-xs text-zinc-400 hidden lg:block">{{listProduk.namaKategori}}</p>               
-                    <p class="font-semibold font-serif text-base lg:text-lg">{{ listProduk.nama }}</p>
+                    <p class="font-semibold font-serif text-zinc-800 text-base lg:text-lg">{{ listProduk.nama }}</p>
                 </div>
                 <div>
                     <p class="text-xs text-zinc-400">Mulai</p>
-                    <p class="font-semibold text-base lg:text-lg font-serif pb-0 lg:pb-8">{{ formatRupiah(listProduk.harga_base) }}</p>
+                    <p class="font-semibold text-base lg:text-lg font-serif text-zinc-800 pb-0 md:pb-8">{{ formatRupiah(listProduk.harga_base) }}</p>
                 </div>
             </div> 
             <div class="absolute inset-x-0 bottom-0

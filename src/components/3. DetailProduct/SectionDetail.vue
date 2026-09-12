@@ -1,12 +1,12 @@
 <template>
     <section v-if="isProduct === false" class="flex items-center justify-center text-2xl text-center text-zinc-400 h-screen">
         <p class="items-center">Produk <strong>"{{ route.params.slug }}"</strong> <br> tidak ada dalam katalog Kami</p>
-    </section>
+    </section>   
     <section v-if="isProduct" class="w-full py-10 px-10">
         <div class="flex flex-col md:flex-row max-w-400 mx-auto gap-6 h-full">
             <div class="w-full h-full md:w-[50%]">
-                <p class="font-serif text-3xl font-semibold mb-2 tracking-normal">{{ dataProduk.nama }}</p>
-                <div class="w-full aspect-square bg-cover bg-center bg-zinc-200 rounded-sm" :style="{ backgroundImage: `url(${dataProduk.gambar?.[0]?.url})` }"></div>
+                <p class="font-serif text-3xl font-semibold mb-2 tracking-normal">{{ dataProduk.nama || 'Nama Produk' }}</p>
+                <div class="w-full aspect-square bg-cover bg-center bg-zinc-200 rounded-sm" :style="{ backgroundImage: `url(${dataProduk.gambar?.[0]?.url})`}"></div>
             </div>
             <div class="flex flex-col justify-end w-full md:w-[50%] h-full gap-3">
                 <div class="px-6 py-3 bg-white border-b border-zinc-400">
@@ -40,7 +40,10 @@
     const fetchProduk = async() => {
         isLoading.value = true
 
-        const { data, error } = await supabase
+         try{
+            // await new Promise(resolve => setTimeout(resolve, 3000))
+
+             const { data } = await supabase
             .from('produk')
             .select(
                 `id,
@@ -52,17 +55,19 @@
             )
             .eq('slug', route.params.slug)
             .single()
-
-        if(error) {
-            console.error("gagal", error.message)
-            isProduct.value = false
-        } else {
+            
             dataProduk.value = data
-            console.log(data)
             isProduct.value = true
-        }
-        
-        isLoading.value = false 
+         }
+
+         catch(error){
+            console.error("gagal", error.message)
+
+         }
+
+         finally{
+            isLoading.value = false
+         }        
     } 
 
     onMounted(() => {

@@ -36,8 +36,11 @@
             </td>
           </tr>
 
-          <tr v-if="produkFiltered.length === 0">
-            <td colspan="5" class="px-4 py-8 text-center text-slate-500">
+          <tr>
+            <td v-if="loading" colspan="5" class="px-4 py-8 text-center text-slate-500">
+              Memuat produk...
+            </td>
+            <td v-if="produkFiltered.length === 0 && !loading" colspan="5" class="px-4 py-8 text-center text-slate-500">
               Tidak ada produk untuk kategori ini.
             </td>
           </tr>
@@ -57,6 +60,10 @@
                     type: Array,
                     required: true,
                     default: () => []
+                  },
+                  loading: {
+                    type: Boolean,
+                    default: false
                   }
               })
 

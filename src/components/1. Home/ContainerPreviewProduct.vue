@@ -1,4 +1,7 @@
 <template>
+        <div v-if="isLoading === true" class="h-full flex items-center justify-center text-4xl text-center text-zinc-400">
+            <strong>Memuat Produk...</strong>
+        </div>
         <div name="containerPreview" 
         v-for="(kategori, index) in dataYangDitampilkan" 
         :key="index" 
@@ -34,6 +37,7 @@
     const isLoading = ref()
 
     const fetchKatalog = async () => {
+        isLoading.value = true
         // Query ini membaca tabel kategori, dan mengikutkan produk beserta gambarnya
         const { data, error } = await supabase
             .from('kategori')

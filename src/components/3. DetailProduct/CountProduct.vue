@@ -28,7 +28,7 @@
                     Estimasi Harga total
                 </p>
                 <p class="text-zinc-800 font-serif font-extrabold text-3xl mb-6 tracking-wide">
-                    {{ formatRupiah(totalHarga) }}
+                    {{ formatRupiah(!totalHarga ? '0': totalHarga) }}
                 </p>
             </div>
         </div>

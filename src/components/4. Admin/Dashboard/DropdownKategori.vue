@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex flex-row mb-6 gap-6 font-sans font-semibold text-sm w-full border-t-2 border-blue-800 py-3 items-end">
+  <div class="relative flex md:flex-row flex-col mb-6 gap-6 font-sans font-semibold text-sm w-full border-t-2 border-blue-800 py-3 md:items-end">
     <div class="relative flex flex-col w-[50%]">
       <label for="filterKategori" class="font-serif tracking-wide text-lg">Filter Kategori:</label>
       <!-- Wrapper utama: relative agar ul absolutnya tidak lari -->

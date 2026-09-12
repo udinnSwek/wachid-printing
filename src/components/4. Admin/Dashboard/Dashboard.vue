@@ -43,7 +43,7 @@
 
       <DropdownKategori :daftarKategori = "daftarKategori" v-model:selected-kategori="selectedKategori" v-model:search-query="searchQuery"/>
 
-      <TabelProduk :produkFiltered="produkFiltered" :daftarKategori="daftarKategori" @openModalEdit="openModalEdit" />
+      <TabelProduk :loading="loading" :produkFiltered="produkFiltered" :daftarKategori="daftarKategori" @openModalEdit="openModalEdit" />
 
       <ModalForm
         v-if="isModalOpen"
@@ -130,6 +130,19 @@
     deskripsi: ''
   })
 
+  const confirmationToken = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+
+      const token = session?.access_token
+
+      if (!token) {
+        alert("Anda harus login untuk melakukan aksi ini!")
+        return null
+      }
+
+      return token
+  }
+
  watch(
     [isModalOpen, isModalKategori],
     ([modalOpen, modalKategori]) => {
@@ -157,24 +170,41 @@
   })
 
   const fetchData = async () => {
-    const { data, error } = await supabase
-      .from("produk")
-      .select(`
-        id,
-        nama,
-        slug,
-        deskripsi,
-        harga_base,
-        gambar( id, url ),
-        kategori ( id, nama )
-      `)
-      .order('id', { ascending: true })
 
-    if (error) console.error(error.message)
-    else dataProduk.value = data
+    loading.value = true
+
+    try{
+      await new Promise(resolve => setTimeout(resolve, 3000))
+  
+      const { data, error } = await supabase
+        .from("produk")
+        .select(`
+          id,
+          nama,
+          slug,
+          deskripsi,
+          harga_base,
+          gambar( id, url ),
+          kategori ( id, nama )
+        `)
+        .order('id', { ascending: true })
+
+        dataProduk.value = data
+    }
+
+    catch (error) {
+      console.error('error fetchData:', error.message)
+    }
+
+    finally {
+      loading.value = false
+    }
   }
 
   const fetchDaftarKategori = async () => {
+    
+    await new Promise(resolve => setTimeout(resolve, 3000))
+
     const { data, count, error } = await supabase
       .from("kategori")
       .select("id, nama, url", { count: "exact" })
@@ -514,7 +544,10 @@
   }
 };
 
-  const deleteKategori = async (id, nama) => {
+  const deleteKategori = async (id, nama, url) => {
+
+    const token = await confirmationToken();
+    if (!token) return
 
     const isConfirmed = confirm(`Apakah kamu yakin ingin menghapus kategori "${nama}"? \n\nPeringatan: Menghapus kategori mungkin akan gagal jika masih ada produk yang menggunakan kategori ini.`)
     
@@ -522,9 +555,25 @@
 
     console.log('Mencoba menghapus ID:', id, 'Tipe datanya:', typeof id);
     console.log('Nama kategori:', nama);
+    console.log('kategoriUrl =', url)
     loading.value = true
 
     try {
+      if(url) {
+        const responseHapusGambar = await fetch('/api/hapus-gambar', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${token}`    
+           },
+          body: JSON.stringify({ gambarURL: url })
+        });
+
+        if (!responseHapusGambar.ok) {
+          const errData = await responseHapusGambar.json();
+          throw new Error(errData.error || 'Gagal menghapus gambar di Cloudinary');
+        }  
+      } 
       const { error: errDelete } = await supabase
         .from('kategori')
         .delete()
@@ -550,13 +599,8 @@
 
   const deleteProduk = async () => {
 
-    const { data: { session } } = await supabase.auth.getSession();
-    const token = session?.access_token;
-
-    if (!token) {
-      alert("Anda harus login untuk melakukan aksi ini!");
-      return;
-    }
+    const token = await confirmationToken();
+    if (!token) return
 
     const isConfirmed = confirm(`Apakah kamu yakin ingin menghapus produk "${form.value.nama}"?`)
     
@@ -576,8 +620,8 @@
         });
 
         if (!responseHapusGambar.ok) {
-        const errData = await responseHapusGambar.json();
-        throw new Error(errData.error || 'Gagal menghapus gambar di Cloudinary');
+          const errData = await responseHapusGambar.json();
+          throw new Error(errData.error || 'Gagal menghapus gambar di Cloudinary');
       }  
     } 
 

@@ -40,7 +40,7 @@
       />
       
       <Info :produkFiltered = "produkFiltered" :dataProduk="dataProduk" :jumlahKategori="jumlahKategori" @openModalAdd="openModalAdd" @openModalKategori="openModalKategori"/>
-
+      
       <DropdownKategori :daftarKategori = "daftarKategori" v-model:selected-kategori="selectedKategori" v-model:search-query="searchQuery"/>
 
       <TabelProduk :loading="loading" :produkFiltered="produkFiltered" :daftarKategori="daftarKategori" @openModalEdit="openModalEdit" />
@@ -396,6 +396,7 @@
   const closeModal = () => {
     isModalOpen.value = false
     isModalKategori.value = false
+    isAddingNew.value = false
   }
 
   const jalankanUploadCloudinary = async (file) => {

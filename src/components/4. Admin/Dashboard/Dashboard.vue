@@ -173,9 +173,7 @@
 
     loading.value = true
 
-    try{
-      await new Promise(resolve => setTimeout(resolve, 3000))
-  
+    try{  
       const { data, error } = await supabase
         .from("produk")
         .select(`
@@ -203,8 +201,6 @@
 
   const fetchDaftarKategori = async () => {
     
-    await new Promise(resolve => setTimeout(resolve, 3000))
-
     const { data, count, error } = await supabase
       .from("kategori")
       .select("id, nama, url", { count: "exact" })

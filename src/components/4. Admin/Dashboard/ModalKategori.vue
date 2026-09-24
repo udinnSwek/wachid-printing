@@ -1,29 +1,30 @@
 <template>
-  <div v-if="isModalKategori" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm transition-opacity text-base" 
+  <div v-if="isModalKategori" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm transition-opacity text-sm" 
       @click.self="$emit('closeModal')">
-    <div class="bg-white flex flex-col w-[60%] rounded-sm shadow-xl max-h-[80%] overflow-clip">
-      <div class="flex justify-between items-center mb-4 bg-yellow-400 px-6 pt-5 pb-3">
-        <p class="text-2xl font-semibold font-serif text-slate-800">Edit / Tambah Kategori</p>
+    <div class="bg-white flex flex-col w-full max-w-5xl rounded-sm shadow-xl max-h-[90vh] overflow-hidden transform transition-all">
+      <div class="flex justify-between items-center bg-yellow-400 px-6 pt-5 pb-3 shrink-0">
+        <h3 class="text-2xl font-semibold font-serif text-slate-800">Edit / Tambah Kategori</h3>
+        <div></div>
         <button @click="$emit('closeModal')" class="text-zinc-800 hover:text-slate-600 font-bold text-lg cursor-pointer">
           &times;
         </button>
       </div>
-      <div class="flex items-center mb-4 bg-yellow-50 px-6 pt-3 pb-2">
+      <div class="flex items-center px-6 pt-4 pb-2 shrink-0 self-end">
         <button @click="beginAdd" 
-          class="bg-blue-600 text-white w-fit px-5 py-2 rounded-md hover:bg-blue-700 text-sm font-medium mb-4 ml-6">
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors shadow-sm">
           + Tambah Kategori
         </button>
       </div>
 
-      <div ref="scrollContainer" class="overflow-x-auto border-zinc-600 mx-6 mb-6">
-        <table class="w-full text-left text-sm text-zinc-800 border border-zinc-600">
-          <thead class="sticky top-0 z-10 bg-yellow-400 border-b border-slate-200">
+      <div ref="scrollContainer" class="overflow-auto px-6 pb-6 pt-2">
+        <table class="w-full text-left text-xs lg:text-base text-zinc-800 border border-zinc-600">
+          <thead class="sticky -top-2 z-10 bg-yellow-400 border-b border-slate-200">
             <tr class="divide-x divide-zinc-600 text-center">
               <th scope="col" class="px-4 py-3 w-4">No</th>
               <th scope="col" class="px-4 py-3">Nama Kategori</th>
               <th scope="col" class="px-4 py-3">Gambar/Icon</th>
-              <th scope="col" class="px-4 py-3">Aksi</th
-            ></tr>
+              <th scope="col" class="px-4 py-3">Aksi</th>
+            </tr>
           </thead>
           <tbody>
             <tr v-for="(kategori, index) in daftarKategori" 
@@ -50,7 +51,7 @@
               
               <td class="px-4 py-3">
                 <div v-if="editingId !== kategori.id" class="flex justify-center">
-                  <img v-if="kategori.url" :src="kategori.url" alt="Icon kategori" class="w-30 h-30 object-cover rounded-md border border-slate-200" />
+                  <img v-if="kategori.url" :src="kategori.url" alt="Icon kategori" class="w-30 h-30 lg:w-64 lg:h-64 object-cover rounded-md border border-slate-200" />
                   <div v-else class="w-10 h-10 bg-slate-100 border border-slate-200 rounded-md flex items-center justify-center text-[10px] text-slate-400">Kosong</div>
                 </div>
                 <div v-else class="flex flex-col gap-2 min-w-48">
@@ -60,29 +61,31 @@
                 </div>
               </td>
 
-              <td class="px-4 py-3 text-right space-x-3">
-                <template v-if="editingId !== kategori.id">
-                  <button 
-                    @click="beginEdit(kategori)" class="text-blue-600 hover:text-blue-800 font-medium">
-                    Edit
-                  </button>
-                  <button 
-                    @click="$emit('deleteKategori', kategori.id, kategori.nama, kategori.url)" class="text-red-600 hover:text-red-800 font-medium">
-                    Hapus
-                  </button>
-                </template>
-                <template v-else>
-                  <button @click="handleSubmit" :disabled="loading" class="text-green-600 hover:text-green-800 disabled:text-green-300 font-medium">
-                    {{ loading ? 'Mengunggah...' : 'Simpan' }}
-                  </button>
-                  <button @click="cancel" class="text-slate-500 hover:text-slate-700 font-medium">
-                    Batal
-                  </button>
-                </template>
+              <td class="px-4 py-3 text-center align-middle">
+                <div class="flex flex-col gap-2 justify-end items-center md:flex-row">
+                  <template v-if="editingId !== kategori.id">
+                    <button 
+                      @click="beginEdit(kategori)" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors shadow-sm">
+                      Edit
+                    </button>
+                    <button 
+                      @click="$emit('deleteKategori', kategori.id, kategori.nama, kategori.url)" class="px-4 py-2 bg-red-600 hover:bg-red-800 text-zinc-100 text-sm font-medium rounded-lg transition-colors">
+                      Hapus
+                    </button>
+                  </template>
+                  <template v-else>
+                    <button @click="handleSubmit" :disabled="loading" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-sm font-medium rounded-lg transition-colors shadow-sm">
+                      {{ loading ? 'Mengunggah...' : 'Simpan' }}
+                    </button>
+                    <button @click="cancel" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-lg transition-colors">
+                      Batal
+                    </button>
+                  </template>
+                </div>
               </td>
             </tr>
 
-            <tr v-if="isAddingNew" class="bg-blue-50/30">
+            <tr v-if="isAddingNew" class="bg-blue-50/30 divide-x divide-zinc-600">
               <td class="px-4 py-3 text-slate-400 text-center">
                 *
               </td>
@@ -96,10 +99,10 @@
                 </div>
               </td>
               <td class="px-4 py-3 text-right space-x-3">
-                <button @click="handleSubmit" :disabled="loading" class="text-green-600 hover:text-green-800 disabled:text-green-300 font-medium">
+                <button @click="handleSubmit" :disabled="loading" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-sm font-medium rounded-lg transition-colors shadow-sm">
                   {{ loading ? 'Mengunggah...' : 'Simpan' }}
                 </button>
-                <button @click="cancel" class="text-slate-500 hover:text-slate-700 font-medium">
+                <button @click="cancel" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-lg transition-colors">
                   Batal
                 </button>
               </td>

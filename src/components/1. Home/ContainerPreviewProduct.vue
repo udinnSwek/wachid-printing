@@ -14,7 +14,7 @@
                 <containerCardProduct :listProduk="kategori.produk" :index ="index"/>
             </div>
         </div>
-        <div class="flex justify-center mt-8 mb-16">
+        <div v-if="dataKatalog.length > 2" class="flex justify-center mt-8">
             <button 
                 @click="tampilkanSemua = !tampilkanSemua" 
                 class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full shadow-md transition transform hover:scale-105"
@@ -60,7 +60,7 @@
             console.error("Gagal mengambil data katalog:", error.message)
         } else {
             dataKatalog.value = data
-            // console.log(data)
+            console.log(data)
         }
         isLoading.value = false
     }

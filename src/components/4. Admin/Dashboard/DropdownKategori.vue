@@ -1,6 +1,6 @@
 <template>
-  <div class="relative flex md:flex-row flex-col mb-6 gap-6 font-sans font-semibold text-sm w-full border-t-2 border-blue-800 py-3 md:items-end">
-    <div class="relative flex flex-col w-[50%]">
+  <div class="relative flex md:flex-row flex-col mb-6 gap-3 md:gap-6 font-sans font-semibold text-sm w-full border-t-2 border-blue-800 py-3 md:items-end">
+    <div class="relative flex flex-col w-full md:w-[50%]">
       <label for="filterKategori" class="font-serif tracking-wide text-lg">Filter Kategori:</label>
       <!-- Wrapper utama: relative agar ul absolutnya tidak lari -->
       <div class="relative w-full" ref="dropdownRef">
@@ -83,7 +83,7 @@
       </div>
     </div>
 
-    <div class="flex flex-col">
+    <div class="flex flex-col w-full md:w-[50%]">
       <label class="font-serif tracking-wide text-lg">Cari:</label>
       <input 
         type="text" 
@@ -91,10 +91,10 @@
         placeholder="Cari nama produk..." 
         class="px-6 py-2 font-normal bg-zinc-200 focus:outline-none rounded-sm transition focus:ring-2 focus:ring-yellow-600"
       />
-      </div>
-      <div class="w-full text-right">
-        <p class="leading-12   bottom-0 right-0 text-5xl font-serif text-blue-900"><span class="font-normal tracking-normal"> Kategori> </span> {{ namaKategoriTerpilih }}</p>
-      </div>
+    </div>
+    <div class="w-full text-right mt-5">
+      <p class="leading-12 bottom-0 right-0 text-4xl lg:text-5xl font-serif text-blue-900"><span class="font-normal tracking-normal"> Kategori> </span> {{ namaKategoriTerpilih }}</p>
+    </div>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 import { supabase } from '../supabaseClient.js'
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/HomePage.vue'
 import AllProduct from '../views/AllProduct.vue'
 import Admin from '../views/Admin.vue'
@@ -8,7 +8,7 @@ import DetailProduct from '../views/DetailProduct.vue'
 import Login from '../views/Login.vue'
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',          // Jika user membuka web.com/

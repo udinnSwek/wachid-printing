@@ -4,15 +4,17 @@
     <!-- 1. HERO SECTION -->
     <section class="bg-blue-900 h-[70vh] flex flex-col relative justify-center text-center overflow-clip">
       <div class="absolute inset-0 h-[80vh] w-[80vh] bg-yellow-50 rounded-full m-auto z-10"></div>
-      <div class="absolute inset-0 h-[90vh] w-[90vh] bg-yellow-400 rounded-full m-auto"></div>
+      <div class="absolute inset-0 h-[90vh] w-[90vh] bg-yellow-400 rounded-full m-auto z-5"></div>
       <h1 class="text-blue-900 text-7xl lg:text-8xl font-black mb-6 z-20">
         Wachid<br>Printing
       </h1>
       <p class="text-blue-900 max-w-2xl mx-auto text-base lg:text-xl font-serif font-semibold z-20">
         Penuhi semua keperluan cetakmu!
       </p>
-      <img :src="gambarHero1" alt="Hero 1" class="absolute top-0 left-10 w-[50%] h-full object-cover object-center z-0">
-      <img :src="gambarHero2" alt="Hero 2" class="absolute top-0 left-0 w-full h-full object-cover object-center z-0">
+      <img :src="gambarHero1" alt="Hero 1" class="absolute -bottom-10 right-10 w-[20%] object-cover object-center z-0">
+      <img :src="gambarHero2" alt="Hero 2" class="absolute top-10 right-10 w-[20%] object-cover object-center z-0">
+      <img :src="gambarHero3" alt="Hero 3" class="absolute top-0 left-10 w-[20%] object-cover object-center z-0">
+      <img :src="gambarHero4" alt="Hero 4" class="absolute bottom-10 left-10 w-[20%] object-cover object-center z-0">
     </section>
 
     <!-- 2. PRINTING & ADVERTISING -->
